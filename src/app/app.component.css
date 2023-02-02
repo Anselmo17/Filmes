@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+}
+
+.align-loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
