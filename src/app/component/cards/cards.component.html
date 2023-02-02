@@ -1,0 +1,17 @@
+<section class="container">
+    <article class="card" *ngFor="let filme of filmes">
+        <img class="foto" src="https://image.tmdb.org/t/p/w200{{filme.poster_path}}" />
+        <div>
+            <h4>Título :</h4>
+            <p class='title'>{{filme.original_title}}</p>
+        </div>
+        <h4>Lançado:</h4>
+        <p class=''>{{filme.release_date | date: 'dd/MM/yyyy'}}</p>
+        <h4>Notas de usuários:</h4>
+        <p class=''>{{filme.vote_average}}</p>
+        <!-- 
+          <h4>Síntese:</h4>
+          <p class=''>{{filme.overview.substring(0,100)}}</p>
+        -->
+    </article>
+</section>
