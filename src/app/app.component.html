@@ -1,8 +1,8 @@
 
 <section class="container">
   <h1>Filmes</h1>
-  <section class="align-loading">
-    <app-loading *ngIf="!filmes"></app-loading>
+  <section class="align-loading" *ngIf="!filmes">
+    <app-loading></app-loading>
   </section>
 
   <section>
