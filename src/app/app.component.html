@@ -1,12 +1,12 @@
 
 <section class="container">
   <h1>Filmes</h1>
-  <section class="align-loading" *ngIf="!filmes">
+  <section class="align-loading" *ngIf="!movies">
     <app-loading></app-loading>
   </section>
 
   <section>
-    <app-cards [filmes]="filmes" *ngIf="filmes"></app-cards>
+    <app-cards [filmes]="movies" *ngIf="movies"></app-cards>
   </section>
   
 </section>

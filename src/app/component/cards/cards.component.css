@@ -3,7 +3,7 @@
     margin: 10px auto;
     display: grid;
     /* dimensiona os cards d acordo com tela */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     justify-content: center;
