@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +10,31 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'filmes';
 
-  filmes:any;
+  movies: any;
+  movieById: any;
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-    this.listFilmes();
+  ngOnInit() {
+    this.listMovies();
   }
 
 
-  listFilmes(){
-    const url = 'https://api.themoviedb.org/3/movie/popular?api_key=d9d5478448f569ffcf97e5db8c9fdee8';
-    this.http.get<any>(url).subscribe(response => {
-      this.filmes = response.results;
+  listMovies() {
+    const { POPULAR_MOVIES, KEY, LANGUAGE } = environment;
+
+    const apiFilmesPopular = `${POPULAR_MOVIES}api_key=${KEY}&language=${LANGUAGE}`;
+    this.http.get<any>(apiFilmesPopular).subscribe(response => {
+      this.movies = response.results;
+    });
+  }
+
+  detailsByMovie(idFilme:string) {
+    const { DETAILS_MOVIE, KEY, LANGUAGE } = environment;
+    const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}8&language=${LANGUAGE}`;
+
+    this.http.get<any>(apiMovieCompleted).subscribe(response => {
+      this.movieById = response.results;
     });
   }
 }
