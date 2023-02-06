@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -7,13 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  @Input() filmes:any;
+  @Input() filmes: any;
+  @Output('item') movieSelected: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { /* TODO document why this constructor is empty */  }
+  constructor() { }
 
-  ngOnInit(): void {
-    console.log('---------------- ', this.filmes);
-    // TODO document why this method 'ngOnInit' is empty
+  ngOnInit() {}
+
+  movieId(id: string) {
+    this.movieSelected.emit(id);
   }
-
 }

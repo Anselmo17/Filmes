@@ -30,12 +30,13 @@ export class AppComponent {
     });
   }
 
-  detailsByMovie(idFilme:string) {
+  detailsByMovie(idFilme: any) {
     const { DETAILS_MOVIE, KEY, LANGUAGE } = environment;
-    const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}8&language=${LANGUAGE}`;
+    const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}&language=${LANGUAGE}`;
 
-    this.http.get<any>(apiMovieCompleted).subscribe(response => {
-      this.movieById = response.results;
+    this.http.get<any>(apiMovieCompleted).subscribe(movieFind => {
+      this.movieById = movieFind;
+      console.log(' filme encontrado :', movieFind);
       this.openModalId = true;
     });
   }
