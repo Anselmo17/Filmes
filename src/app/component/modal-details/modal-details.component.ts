@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-modal-details',
   templateUrl: './modal-details.component.html',
   styleUrls: ['./modal-details.component.css']
 })
-export class ModalDetailsComponent {
+export class ModalDetailsComponent implements OnChanges{
 
   @Input() movie: any;
   @Input() openModal: any;
@@ -18,6 +18,11 @@ export class ModalDetailsComponent {
 
   toggle() {
     this.open = !this.open;
+  }
+
+  ngOnChanges(item: SimpleChanges) {
+   console.log('----- item mudado -----------', item)
+   this.open = item.openModal?.currentValue || true;
   }
 
 
