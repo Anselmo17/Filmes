@@ -11,7 +11,8 @@ export class AppComponent {
   title = 'filmes';
 
   movies: any;
-  movieById: any;
+  movieById: any = null;
+  openModalId = false;
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,7 @@ export class AppComponent {
 
     this.http.get<any>(apiMovieCompleted).subscribe(response => {
       this.movieById = response.results;
+      this.openModalId = true;
     });
   }
 }

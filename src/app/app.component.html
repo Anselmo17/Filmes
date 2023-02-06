@@ -5,6 +5,9 @@
     <app-loading></app-loading>
   </section>
 
+  <!-- Modal -->
+  <app-modal-details [movie]="movieById" [openModal]="openModalId" *ngIf="movieById"></app-modal-details>
+
   <section>
     <app-cards [filmes]="movies" *ngIf="movies"></app-cards>
   </section>
