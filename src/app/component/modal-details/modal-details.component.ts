@@ -14,7 +14,7 @@ export class ModalDetailsComponent {
 
   constructor() {
     this.open = this.openModal;
-   }
+  }
 
   toggle() {
     this.open = !this.open;

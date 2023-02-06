@@ -16,7 +16,10 @@
          
         <div *ngIf="filme.overview">
             <h4 class="mt">Síntese:</h4>
-            <p class=''>{{filme.overview.substring(0,50)}}...</p>
+            <p class=''>
+                {{filme.overview.substring(0,50)}}...
+                <button type="button" class="btn first">Saiba mais</button>
+            </p>
         </div>
         
     </article>
