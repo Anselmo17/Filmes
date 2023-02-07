@@ -99,7 +99,7 @@ h4 {
 }
 
 
-.foto-details{
+.foto-details {
   width: 200px;
   height: auto;
   margin: 5px 20px;
@@ -108,7 +108,20 @@ h4 {
   border-radius: 10px;
 }
 
-.align-secao{
+.align-secao {
   display: flex;
   margin-bottom: 20px;
+}
+
+.lancamento {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-title{
+  text-align: center;
+}
+
+.align-title * {
+  font-size: 1.4em;
 }
