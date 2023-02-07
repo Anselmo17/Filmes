@@ -26,7 +26,14 @@ export class AppComponent {
 
     const apiFilmesPopular = `${POPULAR_MOVIES}api_key=${KEY}&language=${LANGUAGE}`;
     this.http.get<any>(apiFilmesPopular).subscribe(response => {
-      this.movies = response.results;
+      this.movies = response.results.map((item: any) => {
+
+        return {
+          ...item,
+          vote_average: item.vote_average.toFixed(1)
+        }
+      });
+
     });
   }
 
@@ -35,7 +42,11 @@ export class AppComponent {
     const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}&language=${LANGUAGE}`;
 
     this.http.get<any>(apiMovieCompleted).subscribe(movieFind => {
-      this.movieById = movieFind;
+      this.movieById =  {
+          ...movieFind,
+          vote_average: movieFind.vote_average.toFixed(1)
+        }
+  
       console.log(' filme encontrado :', movieFind);
       this.openModalId = true;
     });

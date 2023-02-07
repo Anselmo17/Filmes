@@ -21,7 +21,6 @@ export class ModalDetailsComponent implements OnChanges {
   }
 
   ngOnChanges(item: SimpleChanges) {
-    console.log('----- item mudado -----------', item)
     this.movie = [{ ...item.movie.currentValue }];
     this.open = item.openModal?.currentValue || true;
   }
