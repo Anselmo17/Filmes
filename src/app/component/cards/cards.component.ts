@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CardsComponent implements OnInit {
 
   @Input() filmes: any;
+  @Input() singleCard = false;
   @Output('item') movieSelected: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }

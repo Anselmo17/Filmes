@@ -5,7 +5,7 @@ import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angul
   templateUrl: './modal-details.component.html',
   styleUrls: ['./modal-details.component.css']
 })
-export class ModalDetailsComponent implements OnChanges{
+export class ModalDetailsComponent implements OnChanges {
 
   @Input() movie: any;
   @Input() openModal: any;
@@ -21,8 +21,9 @@ export class ModalDetailsComponent implements OnChanges{
   }
 
   ngOnChanges(item: SimpleChanges) {
-   console.log('----- item mudado -----------', item)
-   this.open = item.openModal?.currentValue || true;
+    console.log('----- item mudado -----------', item)
+    this.movie = [{ ...item.movie.currentValue }];
+    this.open = item.openModal?.currentValue || true;
   }
 
 
