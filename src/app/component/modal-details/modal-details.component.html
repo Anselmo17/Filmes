@@ -1,0 +1,10 @@
+<ng-container *ngIf="open">
+    <section class="modal">
+        <app-cards [filmes]="movie" [singleCard]="true" *ngIf="movie" ></app-cards>
+
+        <div class="align-btn">
+            <button type="button" class="btn close" (click)="toggle()">Fechar</button>
+        </div>
+    </section>
+    <div (click)="toggle()" class="overlay"></div>
+</ng-container>
