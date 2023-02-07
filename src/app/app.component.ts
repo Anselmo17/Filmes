@@ -11,7 +11,8 @@ export class AppComponent {
   title = 'filmes';
 
   movies: any;
-  movieById: any;
+  movieById: any = null;
+  openModalId = false;
 
   constructor(private http: HttpClient) { }
 
@@ -25,16 +26,29 @@ export class AppComponent {
 
     const apiFilmesPopular = `${POPULAR_MOVIES}api_key=${KEY}&language=${LANGUAGE}`;
     this.http.get<any>(apiFilmesPopular).subscribe(response => {
-      this.movies = response.results;
+      this.movies = response.results.map((item: any) => {
+
+        return {
+          ...item,
+          vote_average: item.vote_average.toFixed(1)
+        }
+      });
+
     });
   }
 
-  detailsByMovie(idFilme:string) {
+  detailsByMovie(idFilme: any) {
     const { DETAILS_MOVIE, KEY, LANGUAGE } = environment;
-    const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}8&language=${LANGUAGE}`;
+    const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}&language=${LANGUAGE}`;
 
-    this.http.get<any>(apiMovieCompleted).subscribe(response => {
-      this.movieById = response.results;
+    this.http.get<any>(apiMovieCompleted).subscribe(movieFind => {
+      this.movieById =  {
+          ...movieFind,
+          vote_average: movieFind.vote_average.toFixed(1)
+        }
+  
+      console.log(' filme encontrado :', movieFind);
+      this.openModalId = true;
     });
   }
 }
