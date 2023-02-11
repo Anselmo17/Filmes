@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-modal-details',
