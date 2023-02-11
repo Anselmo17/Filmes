@@ -46,8 +46,6 @@ export class AppComponent {
           ...movieFind,
           vote_average: movieFind.vote_average.toFixed(1)
         }
-  
-      console.log(' filme encontrado :', movieFind);
       this.openModalId = true;
     });
   }

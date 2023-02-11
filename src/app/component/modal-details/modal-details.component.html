@@ -1,5 +1,5 @@
 <ng-container *ngIf="open">
-    <section class="modal">
+    <section class="modal" @modal>
         <app-cards [filmes]="movie" [singleCard]="true" *ngIf="movie" ></app-cards>
 
         <div class="align-btn">
