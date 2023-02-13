@@ -140,8 +140,16 @@ h4 {
   .foto-details {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
     width: 100%;
-    height: max-content;
+    max-height: 280px;
+  }
+}
+
+
+@media only screen and (max-width: 552px) {
+
+  .align-btn{
+    display: flex;
+    justify-content: center;
   }
 }
