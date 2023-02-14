@@ -1,0 +1,12 @@
+<ng-container *ngIf="this.open">
+    <section class="modal" @modal>
+        <div *ngIf="this.message.error">
+            <h2>Houve um erro :</h2>
+            <h3 class="txt-error">{{message.error}}</h3>
+        </div>
+        <div class="align-btn">
+            <button type="button" class="btn close" (click)="toggle()">Fechar</button>
+        </div>
+    </section>
+    <div class="overlay" (click)="toggle()"></div>
+</ng-container>
