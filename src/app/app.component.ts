@@ -45,7 +45,6 @@ export class AppComponent {
         this.loading = false;
         this.error = true;
         this.message = { error: error?.message? error.message : error };
-        console.log('------ Houve um erro:', error?.message ? error.message : error);
       });
   }
 
@@ -67,7 +66,6 @@ export class AppComponent {
         this.loading = false;
         this.error = true;
         this.message = { error: error?.message? error.message : error };
-        console.log('------ Houve um erro:', error?.message ? error.message : error);
       });
   }
 }
