@@ -14,6 +14,8 @@ export class AppComponent {
   movieById: any = null;
   openModalId = false;
   loading = false;
+  error = false;
+  message: any = '';
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +43,8 @@ export class AppComponent {
       },
       error => {
         this.loading = false;
+        this.error = true;
+        this.message = { error: error?.message? error.message : error };
         console.log('------ Houve um erro:', error?.message ? error.message : error);
       });
   }
@@ -61,6 +65,8 @@ export class AppComponent {
       },
       error => {
         this.loading = false;
+        this.error = true;
+        this.message = { error: error?.message? error.message : error };
         console.log('------ Houve um erro:', error?.message ? error.message : error);
       });
   }

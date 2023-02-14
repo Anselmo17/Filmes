@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CardsComponent } from './component/cards/cards.component';
 import { LoadingComponent } from './component/loading/loading.component';
 import { ModalDetailsComponent } from './component/modal-details/modal-details.component';
+import { ModalComponent } from './component/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ModalDetailsComponent } from './component/modal-details/modal-details.c
     CardsComponent,
     LoadingComponent,
     ModalDetailsComponent,
+    ModalComponent,
 
   ],
   imports: [
