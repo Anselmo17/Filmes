@@ -14,5 +14,9 @@
 
   <!--Modal error -->
   <app-modal  [message]="message" [open]="error" *ngIf="error"></app-modal>
+</section>
 
+
+<section class="container-pagination" *ngIf="movies">
+  <app-pagination></app-pagination>
 </section>
