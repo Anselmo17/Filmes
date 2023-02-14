@@ -1,15 +1,18 @@
 
 <section class="container">
   <h1>Filmes</h1>
-  <section class="align-loading" *ngIf="!movies">
+  <section class="align-loading" *ngIf="loading">
     <app-loading></app-loading>
   </section>
 
-  <!-- Modal -->
+  <!-- Modal Details-->
   <app-modal-details [movie]="movieById" [openModal]="openModalId" *ngIf="movieById"></app-modal-details>
 
   <section>
     <app-cards [filmes]="movies" (item)="detailsByMovie($event)" *ngIf="movies" ></app-cards>
   </section>
-  
+
+  <!--Modal error -->
+  <app-modal  [message]="message" [open]="error" *ngIf="error"></app-modal>
+
 </section>

@@ -13,6 +13,9 @@ export class AppComponent {
   movies: any;
   movieById: any = null;
   openModalId = false;
+  loading = false;
+  error = false;
+  message: any = '';
 
   constructor(private http: HttpClient) { }
 
@@ -25,28 +28,44 @@ export class AppComponent {
     const { POPULAR_MOVIES, KEY, LANGUAGE } = environment;
 
     const apiFilmesPopular = `${POPULAR_MOVIES}api_key=${KEY}&language=${LANGUAGE}`;
-    this.http.get<any>(apiFilmesPopular).subscribe(response => {
-      this.movies = response.results.map((item: any) => {
+    this.loading = true;
+    this.http.get<any>(apiFilmesPopular).subscribe(
+      response => {
+        this.loading = false;
+        this.movies = response.results.map((item: any) => {
 
-        return {
-          ...item,
-          vote_average: item.vote_average.toFixed(1)
-        }
+          return {
+            ...item,
+            vote_average: item.vote_average.toFixed(1)
+          }
+        });
+
+      },
+      error => {
+        this.loading = false;
+        this.error = true;
+        this.message = { error: error?.message? error.message : error };
       });
-
-    });
   }
 
   detailsByMovie(idFilme: any) {
     const { DETAILS_MOVIE, KEY, LANGUAGE } = environment;
     const apiMovieCompleted = `${DETAILS_MOVIE}/${idFilme}?api_key=${KEY}&language=${LANGUAGE}`;
 
-    this.http.get<any>(apiMovieCompleted).subscribe(movieFind => {
-      this.movieById = {
-        ...movieFind,
-        vote_average: movieFind.vote_average.toFixed(1)
-      }
-      this.openModalId = true;
-    });
+    this.loading = true;
+    this.http.get<any>(apiMovieCompleted).subscribe(
+      movieFind => {
+        this.loading = false;
+        this.movieById = {
+          ...movieFind,
+          vote_average: movieFind.vote_average.toFixed(1)
+        }
+        this.openModalId = true;
+      },
+      error => {
+        this.loading = false;
+        this.error = true;
+        this.message = { error: error?.message? error.message : error };
+      });
   }
 }
