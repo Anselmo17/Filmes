@@ -8,10 +8,19 @@
   <!-- Modal Details-->
   <app-modal-details [movie]="movieById" [openModal]="openModalId" *ngIf="movieById"></app-modal-details>
 
-  <!-- pagination -->
-  <section class="container-pagination" *ngIf="movies">
+  <!-- pagination 
+    TODO: finalizar o componente
+    <section class="container-pagination" *ngIf="movies">
     <h3 class="title-pages">Páginas:</h3>
     <app-pagination [movies]="movies" ></app-pagination>
+  </section>
+  -->
+
+  <section class="container-form" *ngIf="!loading">
+    <form>
+      <input type="text" id="movie" name="movie" placeholder="Digite o filme procurado...">
+      <input type="submit" value="Buscar" (click)="searchMovies()">
+    </form>
   </section>
 
   <section>
