@@ -44,7 +44,7 @@ export class AppComponent {
       error => {
         this.loading = false;
         this.error = true;
-        this.message = { error: error?.message? error.message : error };
+        this.message = { error: error?.message ? error.message : error };
       });
   }
 
@@ -65,7 +65,36 @@ export class AppComponent {
       error => {
         this.loading = false;
         this.error = true;
-        this.message = { error: error?.message? error.message : error };
+        this.message = { error: error?.message ? error.message : error };
+      });
+  }
+
+  searchMovies() {
+    const { SEARCH_MOVIE, KEY, LANGUAGE } = environment;
+
+    const movie: any = document.getElementById('movie') || '';
+    if (!movie) {
+      return;
+    }
+
+    const apiSearchMovie = `${SEARCH_MOVIE}api_key=${KEY}&query=${movie.value}&language=${LANGUAGE}`;
+    this.loading = true;
+    this.http.get<any>(apiSearchMovie).subscribe(
+      response => {
+        this.loading = false;
+        this.movies = response.results.map((item: any) => {
+
+          return {
+            ...item,
+            vote_average: item.vote_average.toFixed(1)
+          }
+        });
+
+      },
+      error => {
+        this.loading = false;
+        this.error = true;
+        this.message = { error: error?.message ? error.message : error };
       });
   }
 }

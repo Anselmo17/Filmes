@@ -27,6 +27,7 @@ export const environment = {
    production: ${isProduction},
    POPULAR_MOVIES: '${process.env.POPULAR_MOVIES}',
    DETAILS_MOVIE: '${process.env.DETAILS_MOVIE}',
+   SEARCH_MOVIE: '${process.env.SEARCH_MOVIE}',
    KEY: '${process.env.KEY}',
    LANGUAGE:'${process.env.LANGUAGE}',
 };
