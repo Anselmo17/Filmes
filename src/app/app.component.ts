@@ -73,7 +73,7 @@ export class AppComponent {
     const { SEARCH_MOVIE, KEY, LANGUAGE } = environment;
 
     const movie: any = document.getElementById('movie') || '';
-    if (!movie) {
+    if (!movie || movie.value) {
       return;
     }
 
