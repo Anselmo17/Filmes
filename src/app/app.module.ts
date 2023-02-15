@@ -8,6 +8,7 @@ import { CardsComponent } from './component/cards/cards.component';
 import { LoadingComponent } from './component/loading/loading.component';
 import { ModalDetailsComponent } from './component/modal-details/modal-details.component';
 import { ModalComponent } from './component/modal/modal.component';
+import { PaginationComponent } from './component/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ModalComponent } from './component/modal/modal.component';
     LoadingComponent,
     ModalDetailsComponent,
     ModalComponent,
+    PaginationComponent,
 
   ],
   imports: [
